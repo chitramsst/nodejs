@@ -5,16 +5,16 @@ const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('chat-form')
 
 
-// const name = prompt("what is your name")
-//appendMessage('you joined');
+const name = prompt("what is your name")
+appendMessage('you joined');
 
 /* send new user joined message to the sever */
-// socket.emit('new-user',name)
+socket.emit('new-user',name)
 
-// /* receied new user connected messsage from the server */
-// socket.on('user-connected', name => {
-//     appendMessage(`${name} connected`)
-// })
+/* receied new user connected messsage from the server */
+socket.on('user-connected', name => {
+    appendMessage(`${name} connected`)
+})
 
 
 /* received message from server */
@@ -36,10 +36,14 @@ socket.on('user-disconnected', name => {
     appendMessage(`${name} disconnected`)
 })
 
-/* append mesage to the container */
+/* append message to the container */
 function appendMessage(data){
-         const messageElement = document.createElement('div')
+      const rowElement = document.createElement('div')
+      rowElement.className = "w-10"
+         const messageElement = document.createElement('button')
+         messageElement.id = "user-text"
+         messageElement.className = "bg-primary btn text-white text-right float-end"
          messageElement.innerText = data
-         messageContainer.append(messageElement)
+         rowElement.append(messageElement)
+         messageContainer.append(rowElement)
 }
-
