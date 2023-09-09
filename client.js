@@ -23,7 +23,8 @@ socket.on('chat-from-message', data => {
 
 /* received message from server */
 socket.on('chat-message', data => {
-    appendMessage(`${data.name} : ${data.message}`)
+    //appendMessage(`${data.name} : ${data.message}`)
+    appendMessage(`${data.message}`)
 })
 
 /* when click send button */
@@ -59,7 +60,7 @@ function appendFromUserMessage(data){
     const rowElement = document.createElement('div')
     rowElement.className = "w-10 mb-3"
        const messageElement = document.createElement('button')
-       messageElement.className = "bg-dark btn text-white"
+       messageElement.className = "bg-light btn text-black"
        messageElement.innerText = data
        rowElement.append(messageElement)
        const clearFixElement = document.createElement('div')
