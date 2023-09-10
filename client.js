@@ -4,7 +4,6 @@ const messageInput = document.getElementById('chat-message')
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('chat-form')
 
-
 const name = prompt("what is your name")
 appendFromUserMessage('you joined');
 
